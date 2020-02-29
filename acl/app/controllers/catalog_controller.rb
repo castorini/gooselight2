@@ -6,11 +6,15 @@ class CatalogController < ApplicationController
   configure_blacklight do |config|
     ## Default parameters to send to solr for all search-like requests. See also SearchBuilder#processed_parameters
     config.default_solr_params = {
-      rows: 50
+      qt: 'search',
+      rows: 20,
+      'facet.mincount': 1,
     }
 
+    config.fetch_many_document_params = { fl: '*' }
+
     # items to show per page, each number in the array represent another option to choose from.
-    config.per_page = [50,100,200]
+    config.per_page = [20, 50, 100]
 
     # solr field configuration for search results/index views
     config.index.title_field = 'title'
@@ -30,60 +34,44 @@ class CatalogController < ApplicationController
     config.add_nav_action(:search_history, partial: 'blacklight/nav/search_history')
 
     # facets fields
-    config.add_facet_field 'year', label: 'Year', :sort => 'index'
-    config.add_facet_field 'topics', :label => 'Topic', :limit => 20, :sort => 'index'
-    config.add_facet_field 'subjects', :label => 'Subject', :limit => 20, :sort => 'index'
-    config.add_facet_field 'authors', :label => 'Author', :limit => 20, :sort => 'index'
-    config.add_facet_field 'journals', :label => 'Journal', :limit => 20, :sort => 'index'
+    config.add_facet_field 'year', label: 'Year', :limit => 10, :sort => :count, :collapse => true
+    config.add_facet_field 'authors', :label => 'Author', :limit => 10, :sort => :count, :collapse => true
+    config.add_facet_field 'sigs', :label => 'Special Interest Groups', :limit => 10, :sort => :count, :collapse => true
+    config.add_facet_field 'venues', :label => 'Venues', :limit => 10, :sort => :count, :collapse => true
     config.add_facet_fields_to_solr_request!
 
     # solr fields to be displayed in the index (search results) view
     # ordering of the field names is the order of the display
-    config.add_index_field 'title', label: 'Title'
-    config.add_index_field 'authors', label: 'Authors'
-    config.add_index_field 'journals', label: 'Journals'
-    config.add_index_field 'topics', label: 'Topics'
-    config.add_index_field 'subjects', label: 'Subjects'
-    config.add_index_field 'downloadUrl', label: 'URL'
-    config.add_index_field 'doi', label: 'DOI'
+    config.add_index_field 'author_string', label: 'Authors'
+    config.add_index_field 'abstract_html', label: 'Abstract'
+    config.add_index_field 'booktitle', label: 'Volume'
+    config.add_index_field 'publisher', label: 'Publisher'
+    config.add_index_field 'pages', label: 'Pages'
+    config.add_index_field 'url', label: 'URL'
 
     # solr fields to be displayed in the show (single result) view
     # ordering of the field names is the order of the display
-    config.add_show_field 'title', label: 'Title'
-    config.add_show_field 'authors', label: 'Authors'
-    config.add_show_field 'journals', label: 'Journals'
-    config.add_show_field 'topics', label: 'Topics'
-    config.add_show_field 'subjects', label: 'Subjects'
-    config.add_show_field 'downloadUrl', label: 'URL'
-    config.add_show_field 'doi', label: 'DOI'
+    config.add_show_field 'author_string', label: 'Authors'
+    config.add_show_field 'abstract_html', label: 'Abstract'
+    config.add_show_field 'booktitle', label: 'Volume'
+    config.add_show_field 'publisher', label: 'Publisher'
+    config.add_show_field 'pages', label: 'Pages'
+    config.add_show_field 'url', label: 'URL'
 
     # search fields
     config.add_search_field 'contents', label: 'Contents' do |field|
-      field.solr_parameters = { :df => 'contents' }
+      field.solr_parameters = { :df => 'contents', :qf => 'contents' }
     end
 
-    config.add_search_field 'authors', label: 'Authors' do |field|
-      field.solr_parameters = { :df => 'authors' }
-    end
-
-    config.add_search_field 'journals', label: 'Journals' do |field|
-      field.solr_parameters = { :df => 'journals' }
-    end
-
-    config.add_search_field 'topics', label: 'Topics' do |field|
-      field.solr_parameters = { :df => 'topics' }
-    end
-
-    config.add_search_field 'subjects', label: 'Subjects' do |field|
-      field.solr_parameters = { :df => 'subjects' }
+    config.add_search_field 'author_string', label: 'Authors' do |field|
+      field.solr_parameters = { :df => 'author_string', :qf => 'author_string' }
     end
 
     # sort options
     config.add_sort_field 'score desc, title asc', label: 'relevance'
-    config.add_sort_field 'year desc, title asc', label: 'year'
 
-    # If there are more than this many search results, no spelling ("did you
-    # mean") suggestion is offered.
+    # If there are more than this many search results, no spelling ('did you
+    # mean') suggestion is offered.
     config.spell_max = 5
 
     # Configuration for autocomplete suggestor
