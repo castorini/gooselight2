@@ -17,8 +17,8 @@ This project contains multiple [Project Blacklight](http://projectblacklight.org
 
 ### Prerequisites
 * Running each individual Blacklight app requires building the matching Solr collection
-  * ie) `hydrology` or `acl`
-* Follow the [Solrini](https://github.com/castorini/anserini/blob/master/docs/solrini.md) instructions to build an index with the appropriate name
+  * ie) `hydrology`, `gwf`, `acl`
+* Follow the [Solrini](https://github.com/castorini/anserini/blob/master/docs/solrini.md) instructions to build the appropriate collection
 
 ### Development
 * Navigate to one of the Rails apps in the subdirectories
