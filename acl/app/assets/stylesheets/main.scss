@@ -1,0 +1,68 @@
+$enable-gradients: true;
+
+$blue: #446E9B;
+$red: #d9534f;
+$orange: #f47c3c;
+$green: #93C54B;
+$cyan: #29ABE0;
+
+$yiq-contrasted-threshold: 200;
+
+@import "bootstrap";
+@import "blacklight/blacklight";
+
+$attachment_color: darken( $green, 10% );
+$theme-colors: map-merge(
+  $theme-colors,
+  (
+    "attachment":  $attachment_color
+  )
+);
+
+/* Some space improvements on smaller displays */
+@include media-breakpoint-down(sm) {
+  h2#title {
+    font-size: $h3-font-size !important;
+  }
+}
+
+/* Fix spacing issues in nested lists */
+ul ul, ul ol, ol ul, ol ol {
+  & + p {
+    margin-top: 1rem !important;
+  }
+}
+
+.col-xl-width-auto {
+  flex-basis: auto;
+  width: auto;
+}
+
+.transform-lower-sm {
+  text-transform: lowercase;
+}
+@include media-breakpoint-up(sm) {
+  .transform-lower-sm {
+    text-transform: unset !important;
+  }
+}
+
+/* For co-author/venue info on people/ pages */
+.list-group-compact {
+  .list-group-item {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+  }
+}
+
+.list-group-toggle-btn {
+  @extend .btn;
+
+  &[aria-expanded=false] {
+    @extend .btn-info;
+  }
+  &[aria-expanded=true] {
+    display: none;
+  }
+}
+
