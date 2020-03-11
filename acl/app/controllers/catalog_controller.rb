@@ -33,11 +33,7 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the index (search results) view
     # ordering of the field names is the order of the display
     config.add_index_field 'author_string', label: 'Authors'
-    config.add_index_field 'abstract_html', label: 'Abstract'
     config.add_index_field 'booktitle', label: 'Volume'
-    config.add_index_field 'publisher', label: 'Publisher'
-    config.add_index_field 'pages', label: 'Pages'
-    config.add_index_field 'url', label: 'URL'
 
     # solr fields to be displayed in the show (single result) view
     # ordering of the field names is the order of the display
