@@ -1,0 +1,9 @@
+development:
+  adapter: solr
+  url: <%= ENV['SOLR_URL'] || "http://127.0.0.1:8983/solr/covid" %>
+test: &test
+  adapter: solr
+  url: <%= ENV['SOLR_URL'] || "http://127.0.0.1:8983/solr/covid" %>
+production:
+  adapter: solr
+  url: <%= ENV['SOLR_URL'] || "http://127.0.0.1:8983/solr/covid" %>
