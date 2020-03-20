@@ -61,7 +61,7 @@ GEM
     autoprefixer-rails (9.7.4)
       execjs
     bindex (0.8.1)
-    blacklight (7.5.1)
+    blacklight (7.7.0)
       deprecation
       globalid
       jbuilder (~> 2.7)
@@ -252,7 +252,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  blacklight (>= 6.1)
+  blacklight (>= 7.7)
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.0)
   byebug

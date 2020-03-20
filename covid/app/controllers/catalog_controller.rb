@@ -6,20 +6,20 @@ class CatalogController < ApplicationController
   configure_blacklight do |config|
     ## Default parameters to send to solr for all search-like requests. See also SearchBuilder#processed_parameters
     config.default_solr_params = {
-      rows: 50,
+      rows: 20,
       q: "*"
     }
 
     # items to show per page, each number in the array represent another option to choose from.
-    config.per_page = [50,100,200]
+    config.per_page = [20,50,100]
 
     # solr field configuration for search results/index views
     config.index.title_field = 'title'
 
     # facets fields
-    config.add_facet_field 'publish_time', :label => 'Year', :sort => 'index'
-    config.add_facet_field 'authors', :label => 'Author', :limit => 20, :sort => 'count'
-    config.add_facet_field 'journal', :label => 'Journal', :limit => 20, :sort => 'count'
+    config.add_facet_field 'publish_time', :label => 'Year', :sort => 'count'
+    config.add_facet_field 'authors', :label => 'Author', :limit => 10, :sort => 'count'
+    config.add_facet_field 'journal', :label => 'Journal', :limit => 10, :sort => 'count'
     config.add_facet_field 'source_x', :label => 'Source', :sort => 'count'
     config.add_facet_fields_to_solr_request!
 

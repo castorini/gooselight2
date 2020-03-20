@@ -1,3 +1,44 @@
 @import 'bootstrap';
 
 @import 'blacklight/blacklight';
+
+.search-btn {
+    border: none;
+}
+
+.search-q {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.facet-label {
+    text-indent: 0 !important;
+    padding-left: 0 !important;
+}
+
+.navbar-search {
+    padding: 16px;
+}
+
+.topbar {
+    padding: 24px 16px;
+}
+
+.navbar-white {
+    font-size: 150%;
+    color: #FFFFFF;
+
+    &:hover {
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+}
+
+.home-content {
+    padding: 16px;
+    background: none;
+}
+
+.home-heading {
+    margin-bottom: 32px;
+}
