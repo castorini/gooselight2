@@ -6,8 +6,8 @@ class CatalogController < ApplicationController
   configure_blacklight do |config|
     ## Default parameters to send to solr for all search-like requests. See also SearchBuilder#processed_parameters
     config.default_solr_params = {
-      rows: 20,
-      q: "*"
+      q: "*",
+      'facet.mincount': 1,
     }
 
     # items to show per page, each number in the array represent another option to choose from.
@@ -17,7 +17,7 @@ class CatalogController < ApplicationController
     config.index.title_field = 'title'
 
     # facets fields
-    config.add_facet_field 'publish_time', :label => 'Year', :sort => 'count'
+    config.add_facet_field 'publish_time', :label => 'Year', :sort => 'index'
     config.add_facet_field 'authors', :label => 'Author', :limit => 10, :sort => 'count'
     config.add_facet_field 'journal', :label => 'Journal', :limit => 10, :sort => 'count'
     config.add_facet_field 'source_x', :label => 'Source', :sort => 'count'
@@ -27,15 +27,6 @@ class CatalogController < ApplicationController
     # ordering of the field names is the order of the display
     config.add_index_field 'author_string', label: 'Authors'
     config.add_index_field 'journal', label: 'Journal'
-
-    # solr fields to be displayed in the show (single result) view
-    # ordering of the field names is the order of the display
-    config.add_show_field 'author_string', label: 'Authors'
-    config.add_show_field 'journal', label: 'Journal'
-    config.add_show_field 'doi', label: 'DOI'
-    config.add_show_field 'source_x', label: 'Source'
-    config.add_show_field 'publish_time', label: 'Publish Time'
-    config.add_show_field 'abstract', label: 'Abstract'
 
     # search fields
     config.add_search_field 'contents', label: 'Contents' do |field|

@@ -1,3 +1,7 @@
+$primary: #1857b6;
+$secondary: #0f3875;
+$success: #F4D35E;
+
 @import 'bootstrap';
 
 @import 'blacklight/blacklight';
@@ -22,6 +26,7 @@
 
 .topbar {
     padding: 24px 16px;
+    background: linear-gradient(90deg, $primary 0%, $secondary);
 }
 
 .navbar-white {
