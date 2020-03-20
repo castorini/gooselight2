@@ -11,7 +11,7 @@ class CatalogController < ApplicationController
     }
 
     # items to show per page, each number in the array represent another option to choose from.
-    config.per_page = [20,50,100]
+    config.per_page = [25,50,100]
 
     # solr field configuration for search results/index views
     config.index.title_field = 'title'
@@ -35,7 +35,7 @@ class CatalogController < ApplicationController
 
     # sort options
     config.add_sort_field 'score desc, title asc', label: 'relevance'
-    config.add_sort_field 'publish_time desc, title asc', label: 'year'
+    config.add_sort_field 'title asc', label: 'title'
 
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
