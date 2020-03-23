@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@600&display=swap');
+
 $primary: #1857b6;
 $secondary: #0f3875;
 $success: #F4D35E;
@@ -30,9 +32,7 @@ $success: #F4D35E;
 }
 
 .navbar-white {
-    font-size: 150%;
     color: #FFFFFF;
-
     &:hover {
         color: #FFFFFF;
         text-decoration: none;
@@ -46,4 +46,12 @@ $success: #F4D35E;
 
 .home-heading {
     margin-bottom: 32px;
+}
+
+html, body {
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Helvetica Neue, sans-serif;
+}
+
+h1, h2 {
+    font-family: Roboto Slab, -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Helvetica Neue, sans-serif;
 }
