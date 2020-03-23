@@ -14,8 +14,8 @@
         <%= t('blacklight.search.documents.counter', counter: counter) %>
       </span>
     <% end %>
-    <a href="https://www.semanticscholar.org/paper/<%= document.fetch("sha") %>" target="_blank" rel="noopener noreferrer">
-        <%= document.fetch("title") %>
+    <a href="<%= get_document_link(document) %>" target="_blank" rel="noopener noreferrer">
+        <%= document.has?("title") ? document.fetch("title") : document.fetch("doi") %>
     </a>
   </h3>
   <%= document_actions %>

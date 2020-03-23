@@ -17,7 +17,7 @@ class CatalogController < ApplicationController
     config.index.title_field = 'title'
 
     # facets fields
-    config.add_facet_field 'publish_time', :label => 'Year', :sort => 'index'
+    config.add_facet_field 'year', :label => 'Year', :limit => 10, :sort => 'count'
     config.add_facet_field 'authors', :label => 'Author', :limit => 10, :sort => 'count'
     config.add_facet_field 'journal', :label => 'Journal', :limit => 10, :sort => 'count'
     config.add_facet_field 'source_x', :label => 'Source', :sort => 'count'
@@ -27,6 +27,7 @@ class CatalogController < ApplicationController
     # ordering of the field names is the order of the display
     config.add_index_field 'author_string', label: 'Authors'
     config.add_index_field 'journal', label: 'Journal'
+    config.add_index_field 'publish_time', label: 'Published'
 
     # search fields
     config.add_search_field 'contents', label: 'Contents' do |field|
@@ -34,8 +35,7 @@ class CatalogController < ApplicationController
     end
 
     # sort options
-    config.add_sort_field 'score desc, title asc', label: 'relevance'
-    config.add_sort_field 'title asc', label: 'title'
+    config.add_sort_field 'score desc, year desc, title asc', label: 'relevance'
 
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
