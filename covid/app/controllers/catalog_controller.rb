@@ -11,7 +11,7 @@ class CatalogController < ApplicationController
     }
 
     # items to show per page, each number in the array represent another option to choose from.
-    config.per_page = [25,50,100]
+    config.per_page = [20,50,100]
 
     # solr field configuration for search results/index views
     config.index.title_field = 'title'
