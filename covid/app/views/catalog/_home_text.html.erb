@@ -1,32 +1,19 @@
-<% @page_title = t('blacklight.search.page_title.title', :constraints => render_search_to_page_title(params), :application_name => application_name) %>
 
-<% content_for(:head) do -%>
-  <%= render 'catalog/opensearch_response_metadata', response: @response %>
-  <%= rss_feed_link_tag %>
-  <%= atom_feed_link_tag %>
-  <%= json_api_link_tag %>
-<% end %>
+<p>Covidex represents an effort to build natural language processing and information retrieval components for exploring the <a href="https://pages.semanticscholar.org/coronavirus-research">COVID-19 Open Research Dataset (CORD-19)</a> provided by the <a href="https://allenai.org/">Allen Institute for AI</a>.
+We hope that these tools can help researchers generate new insights in support of the fight against the disease.</p>
 
-<% content_for(:skip_links) do -%>
-    <%= link_to t('blacklight.skip_links.first_result'), '#documents', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
-<% end %>
+<p>Presently, our efforts include:</p>
 
-<% content_for(:container_header) do -%>
-  <h1 class="sr-only top-content-title"><%= t('blacklight.search.header') %></h1>
+<ul>
 
-  <%= render 'constraints' %>
-<% end %>
+  <li>The above search interface, which provides basic keyword search and faceted browsing capabilities on the CORD-19 dataset (title and abstracts only).
+Under the covers, the interface is powered by <a href="https://projectblacklight.org/">Blacklight</a>, <a href="https://lucene.apache.org/solr/">Solr</a>, and the <a href="http://anserini.io/">Anserini</a> IR toolkit and (Solrini, which is Anserini's Solr adaptor).</li>
 
-<%= render 'search_header' %>
+  <li>Backend components (code as well as pre-built indexes) for directly searching and manipulating the collection via <a href="http://pyserini.io/">Pyserini</a> (Python bindings for Anserini), along with sample integration of search with <a href="https://huggingface.co/transformers/">HuggingFace's neural models</a>.
+Example Python notebooks and other resources for getting started can be found <a href="https://github.com/castorini/anserini/blob/master/docs/experiments-covid.md">here</a>.</li>
 
-<h2 class="sr-only"><%= t('blacklight.search.search_results') %></h2>
+  <li><i>Coming soon!</i> Neural ranking components...</li>
 
-<%- if @response.empty? %>
-  <%= render "zero_results" %>
-<%- elsif render_grouped_response? %>
-  <%= render_grouped_document_index %>
-<%- else %>
-  <%= render_document_index %>
-<%- end %>
+</ul>
 
-<%= render 'results_pagination' %>
+<p>This project is led by <a href="https://cs.uwaterloo.ca/~jimmylin/publications/index.html">Jimmy Lin</a> from the University of Waterloo and <a href="http://www.kyunghyuncho.me/">Kyunghyun Cho</a> from NYU, with a small team of wonderful students: <a href="https://github.com/edwinzhng">Edwin Zhang</a> and <a href="Nikhil Gupta">Nikhil Gupta</a>. </p>
