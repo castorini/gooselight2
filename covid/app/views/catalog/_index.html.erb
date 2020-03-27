@@ -1,0 +1,20 @@
+<% doc_presenter = index_presenter(document) %>
+
+<% doc_presenter.fields_to_render.each do |field_name, field, field_presenter| -%>
+
+  <% if field_name == 'author_string' -%>
+    <% if not field_presenter.render.end_with? "." -%>
+      <%= field_presenter.render %>.
+    <% else %>
+      <%= field_presenter.render %>
+    <% end -%>
+  <% elsif field_name == 'journal' -%>
+    <i><%= field_presenter.render %></i>
+  <% elsif field_name == 'publish_time' -%>
+    (<%= field_presenter.render %>)
+  <% elsif field_name == 'abstract' -%>
+    <p>
+    <p style="color: grey; line-height: 95%"><small><%= field_presenter.render %></small></p>
+  <% end -%>
+
+<% end -%>
