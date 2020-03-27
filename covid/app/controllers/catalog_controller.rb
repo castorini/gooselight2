@@ -28,6 +28,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'author_string', label: 'Authors'
     config.add_index_field 'journal', label: 'Journal'
     config.add_index_field 'publish_time', label: 'Published'
+    config.add_index_field 'abstract', label: 'Abstract'
 
     # search fields
     config.add_search_field 'contents', label: 'Contents' do |field|
