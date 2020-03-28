@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Roboto:wght@400;700&display=swap');
 
 $primary: #1857b6;
 $secondary: #0f3875;
@@ -53,11 +53,12 @@ $success: #F4D35E;
 }
 
 html, body {
-    font-family: Inter, -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Helvetica Neue, sans-serif;
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Helvetica Neue, sans-serif;
 }
 
 h1, h2 {
-    font-family: Inter, -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Helvetica Neue, sans-serif;
+    font-family: Roboto Slab, serif;
+    font-weight: 700;
 }
 
 #text {
