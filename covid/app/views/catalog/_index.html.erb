@@ -11,9 +11,9 @@
     <i><%= field_presenter.render %></i>
   <% elsif field_name == 'publish_time' -%>
     (<%= field_presenter.render %>)
-    <p />
+    <p class="space" />
   <% elsif field_name == 'abstract' -%>
-    <p style="color: grey; line-height: 95%"><small><%= field_presenter.render %></small></p>
+    <p class="small-text"><%= field_presenter.render %></p>
   <% end -%>
 
 <% end -%>
