@@ -12,10 +12,6 @@ $darkGrey: #555555;
 
 @import 'blacklight/blacklight';
 
-.search-btn {
-    border: none;
-}
-
 .search-q {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
@@ -28,10 +24,11 @@ $darkGrey: #555555;
 
 .navbar-search {
     padding: 16px;
+    margin: 24px 0;
 }
 
-.navbar-white {
-    font-weight: 800 !important;
+.navbar > .container > h2 {
+    margin-bottom: 5px;
 }
 
 .topbar {
@@ -41,6 +38,8 @@ $darkGrey: #555555;
 
 .navbar-white {
     color: #FFFFFF;
+    font-weight: 800 !important;
+
     &:hover {
         color: #FFFFFF;
         text-decoration: none;
@@ -67,6 +66,10 @@ html, body {
     line-height: 1.25;
 }
 
+button, input {
+    font-size: 16px;
+}
+
 h1, h2 {
     font-family: Roboto Slab, serif;
     font-weight: 700;
@@ -84,4 +87,33 @@ h3 {
 .search-icon {
     height: 16px;
     width: 16px;
+}
+
+.search-btn {
+    border: none;
+    padding: 12px 16px;
+    height: 48px;
+}
+
+.search-q {
+    padding: 12px 16px;
+    height: 48px;
+}
+
+.blacklight-catalog {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.container {
+    @media only screen and (min-width: 1200px) {
+        max-width: 1140px;
+    }
 }

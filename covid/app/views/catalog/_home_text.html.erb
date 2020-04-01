@@ -1,19 +1,21 @@
 
-<p>Covidex represents an effort to build natural language processing and information retrieval components for exploring the <a href="https://pages.semanticscholar.org/coronavirus-research">COVID-19 Open Research Dataset (CORD-19)</a> provided by the <a href="https://allenai.org/">Allen Institute for AI</a>.
-We hope that these tools can help researchers generate new insights in support of the fight against the disease.</p>
+<p>
+  The above interface provides basic keyword search and faceted browsing capabilities using the
+  <a href="https://pages.semanticscholar.org/coronavirus-research" target="_blank" rel="noopener noreferrer">
+    COVID-19 Open Research Dataset (CORD-19)
+  </a>
+  provided by the
+  <a href="https://allenai.org/" target="_blank" rel="noopener noreferrer">Allen Institute for AI</a>.
 
-<p>Presently, our efforts include:</p>
+  Under the covers, the interface is powered by
+  <a href="https://projectblacklight.org/" target="_blank" rel="noopener noreferrer">Blacklight</a>,
+  <a href="https://lucene.apache.org/solr/" target="_blank" rel="noopener noreferrer">Solr</a>,
+  and the <a href="http://anserini.io/" target="_blank" rel="noopener noreferrer">Anserini</a>
+  IR toolkit (via Solrini, which is Anserini's Solr adaptor).
+</p>
 
-<ul>
-
-  <li>The above search interface, which provides basic keyword search and faceted browsing capabilities on the March 27, 2020 release of the CORD-19 dataset (title and abstracts only).
-Under the covers, the interface is powered by <a href="https://projectblacklight.org/">Blacklight</a>, <a href="https://lucene.apache.org/solr/">Solr</a>, and the <a href="http://anserini.io/">Anserini</a> IR toolkit (via Solrini, which is Anserini's Solr adaptor).</li>
-
-  <li>Backend components (code as well as pre-built indexes) for directly searching and manipulating the collection via <a href="http://pyserini.io/">Pyserini</a> (Python bindings for Anserini), along with sample integration of search with <a href="https://huggingface.co/transformers/">HuggingFace's neural models</a>.
-Example Python notebooks and other resources for getting started can be found <a href="https://github.com/castorini/anserini/blob/master/docs/experiments-covid.md">here</a>.</li>
-
-  <li><i>Coming soon!</i> Neural ranking components...</li>
-
-</ul>
-
-<p>This project is led by <a href="https://cs.uwaterloo.ca/~jimmylin/">Jimmy Lin</a> from the University of Waterloo and <a href="http://www.kyunghyuncho.me/">Kyunghyun Cho</a> from NYU, with a small team of wonderful students: <a href="https://github.com/edwinzhng">Edwin Zhang</a> and <a href="https://github.com/nikhilro">Nikhil Gupta</a>. </p>
+<p>
+  Be sure to also check out our
+  <a href="https://neural.covidex.ai" target="_blank" rel="noopener noreferrer">Neural Covidex</a>,
+  which takes advantage of state-of-the-art neural network models and artificial intelligence (AI) techniques to answer questions!
+</p>
