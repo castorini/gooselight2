@@ -1,7 +1,18 @@
 # frozen_string_literal: true
 class CatalogController < ApplicationController
-
   include Blacklight::Catalog
+
+  def handle_request_error(exception)
+    raise exception
+  rescue Blacklight::Exceptions::InvalidRequest
+    flash_notice = "Invalid search query, please try something else"
+    flash[:notice] = flash_notice
+    redirect_to search_action_url
+  rescue Exception
+    flash_notice = "Oops, an error occured"
+    flash[:notice] = flash_notice
+    redirect_to search_action_url
+  end
 
   configure_blacklight do |config|
     ## Default parameters to send to solr for all search-like requests. See also SearchBuilder#processed_parameters
@@ -43,7 +54,7 @@ class CatalogController < ApplicationController
     config.spell_max = 5
 
     # Configuration for autocomplete suggestor
-    config.autocomplete_enabled = true
+    config.autocomplete_enabled = false
     config.autocomplete_path = 'suggest'
   end
 end
