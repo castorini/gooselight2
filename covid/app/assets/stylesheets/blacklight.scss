@@ -39,7 +39,7 @@ h3 {
 
 /* Navbar styles */
 .navbar-search {
-    padding: 16px 0;
+    padding: 16px 0 8px 0;
     margin: 24px auto;
     max-width: 1100px;
     width: 100%;
@@ -79,6 +79,7 @@ h3 {
         height: 20px;
         width: 20px;
         margin-bottom: 6px;
+        margin-right: 4px;
 
         svg {
             height: 20px;
@@ -106,15 +107,23 @@ h3 {
 .topbar {
     padding: 24px 16px;
     background: linear-gradient(90deg, $primary 0%, $secondary);
-}
 
-.navbar-white {
-    color: #FFFFFF;
-    font-weight: 800 !important;
+    .container {
+        padding: 0 !important;
 
-    &:hover {
+        h2 {
+            margin-bottom: 5px;
+        }
+    }
+
+    .navbar-white {
         color: #FFFFFF;
-        text-decoration: none;
+        font-weight: 800 !important;
+
+        &:hover {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
     }
 }
 
@@ -149,6 +158,10 @@ h3 {
 
     .col-md-12 {
         padding: 0;
+
+        @media only screen and (max-width: 1132px) {
+            padding: 0 16px;
+        }
     }
 }
 
@@ -157,7 +170,7 @@ h3 {
     width: 100%;
 
     @media only screen and (max-width: 1132px) {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
     }
 }
