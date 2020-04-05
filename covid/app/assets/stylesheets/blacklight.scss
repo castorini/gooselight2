@@ -37,7 +37,15 @@ h3 {
     font-weight: 400;
 }
 
-/* Navbar styles */
+.github-logo {
+    height: 28px;
+
+    &:hover {
+        filter: brightness(85%);
+    }
+}
+
+/* Navbar search styles */
 .navbar-search {
     padding: 16px 0 8px 0;
     margin: 24px auto;
@@ -172,5 +180,21 @@ h3 {
     @media only screen and (max-width: 1132px) {
         padding-left: 16px !important;
         padding-right: 16px !important;
+    }
+}
+
+.footer-container {
+    padding-bottom: calc(24px - 1rem);
+    margin-top: 16px;
+
+    .footer-images {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .footer-logo {
+            height: 28px;
+            width: auto;
+        }
     }
 }
