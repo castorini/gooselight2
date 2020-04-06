@@ -30,6 +30,18 @@ This project contains multiple [Project Blacklight](http://projectblacklight.org
   * `rails s`
 * http://localhost:3000
 
+### Production
+
+* Install dependencies
+  * `bundle install`
+
+* Precompile assets and migrate database
+  * `RAILS_ENV=production bundle exec rake assets:precompile`
+  * `RAILS_ENV=production rails db:migrate`
+
+* Run the Rails server in production mode with static files
+  * `RAILS_ENV=production RAILS_SERVE_STATIC_FILES=true rails s`
+
 ## License
 
 This application is available as open source under the terms of the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
