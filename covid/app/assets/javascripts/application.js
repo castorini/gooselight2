@@ -9,4 +9,9 @@
 //= require twitter/typeahead
 //= require bootstrap
 //= require blacklight/blacklight
+//= require feather-icons
 
+$(document).on('turbolinks:load', function() {
+    $(function(){ feather.replace(); });
+});
+  

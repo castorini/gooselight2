@@ -31,6 +31,9 @@ class CatalogController < ApplicationController
     config.add_facet_field 'year', :label => 'Year', :limit => 10, :sort => 'count'
     config.add_facet_field 'authors', :label => 'Author', :limit => 10, :sort => 'count'
     config.add_facet_field 'journal', :label => 'Journal', :limit => 10, :sort => 'count'
+    config.add_facet_field 'outcomes_vocab', :label => 'Outcomes', :limit => 10, :sort => 'count'
+    config.add_facet_field 'population_vocab', :label => 'Population', :limit => 10, :sort => 'count'
+    config.add_facet_field 'interventions_vocab', :label => 'Interventions', :limit => 10, :sort => 'count'
     config.add_facet_field 'source_x', :label => 'Source', :sort => 'count'
     config.add_facet_fields_to_solr_request!
 
