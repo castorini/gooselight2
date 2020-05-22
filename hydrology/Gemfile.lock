@@ -61,12 +61,13 @@ GEM
     autoprefixer-rails (9.7.4)
       execjs
     bindex (0.8.1)
-    blacklight (7.5.1)
+    blacklight (7.8.0)
       deprecation
       globalid
       jbuilder (~> 2.7)
       kaminari (>= 0.15)
       rails (>= 5.1, < 7)
+      view_component
     bootsnap (1.4.5)
       msgpack (~> 1.0)
     bootstrap (4.4.1)
@@ -141,7 +142,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     popper_js (1.16.0)
     public_suffix (4.0.3)
-    puma (4.3.3)
+    puma (4.3.5)
       nio4r (~> 2.0)
     rack (2.2.2)
     rack-proxy (0.6.5)
@@ -228,6 +229,8 @@ GEM
       railties (>= 3.1)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
+    view_component (2.7.0)
+      activesupport (>= 5.0.0, < 7.0)
     web-console (4.0.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -252,7 +255,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  blacklight (>= 6.1)
+  blacklight (>= 7.7)
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.0)
   byebug
