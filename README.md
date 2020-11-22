@@ -1,8 +1,11 @@
 # Gooselight 2
 
-![gooselight](https://seeklogo.com/images/D/Duck_Hunt-logo-8044A0A3B6-seeklogo.com.png)
+![gooselight](Duck_Hunt-logo.png)
 
 This project contains multiple [Project Blacklight](http://projectblacklight.org/) application for Solr indexes built by [Anserini](https://github.com/castorini/Anserini).
+
+Gooselight is no longer being actively developed or maintained.
+See [Covidex](https://covidex.ai/) as the next iteration of a search frontend for Anserini.
 
 ## Requirements
 
